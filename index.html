@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Amine Boucherit | Software Developer</title>
+    <meta name="description" content="Portfolio of Mohamed Amine Boucherit, Web & Mobile Software Developer and AI student from Tiaret, Algeria">
+    <meta name="keywords" content="software developer, web development, mobile development, AI, artificial intelligence, Algeria, Tiaret">
+    <meta name="author" content="Mohamed Amine Boucherit">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    
+    <style>
+        /* AI Projects Section Styles */
+        .ai-projects {
+            position: relative;
+            padding: 80px 0;
+            background: linear-gradient(135deg, 
+                rgba(15, 23, 42, 0.95) 0%, 
+                rgba(30, 41, 59, 0.95) 100%);
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Neural Network Background Animation */
+        .ai-projects::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(118, 75, 162, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        /* AI Particles Effect */
+        .ai-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(96, 165, 250, 0.2);
+            border-radius: 50%;
+            animation: floatParticle 15s infinite linear;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        .ai-title {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #fff;
+            margin-bottom: 15px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .ai-title i {
+            font-size: 2.5rem;
+            color: #60a5fa;
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .neural-line {
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(96, 165, 250, 0.5) 50%, 
+                transparent 100%);
+            animation: neuralPulse 3s infinite ease-in-out;
+        }
+
+        @keyframes neuralPulse {
+            0%, 100% { 
+                opacity: 0.3;
+                transform: scaleX(0.95);
+            }
+            50% { 
+                opacity: 1;
+                transform: scaleX(1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-subtitle {
+            color: #cbd5e1;
+            font-size: 1.1rem;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease 0.3s forwards;
+        }
+
+        .ai-projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        /* AI Project Card Styles with Animations */
+        .ai-project-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .ai-project-card.animate {
+            animation: cardAppear 0.6s ease forwards;
+        }
+
+        @keyframes cardAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .ai-project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(96, 165, 250, 0.1) 0%,
+                rgba(102, 126, 234, 0.05) 100%
+            );
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .ai-project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(96, 165, 250, 0.3),
+                0 0 50px rgba(96, 165, 250, 0.15),
+                0 0 100px rgba(96, 165, 250, 0.1);
+        }
+
+        .ai-project-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Glow Effect on Hover */
+        .ai-project-card::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, 
+                rgba(96, 165, 250, 0) 0%,
+                rgba(96, 165, 250, 0.1) 25%,
+                rgba(102, 126, 234, 0.1) 75%,
+                rgba(118, 75, 162, 0) 100%);
+            border-radius: 18px;
+            z-index: -2;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .ai-project-card:hover::after {
+            opacity: 1;
+            animation: glowRotate 4s linear infinite;
+        }
+
+        @keyframes glowRotate {
+            0% {
+                filter: hue-rotate(0deg);
+            }
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
+
+        .ai-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .ai-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(102, 126, 234, 0.2));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #60a5fa;
+            transition: all 0.3s ease;
+        }
+
+        .ai-project-card:hover .ai-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(135deg, rgba(96, 165, 250, 0.3), rgba(102, 126, 234, 0.3));
+        }
+
+        /* Special Icon Animation for Drone Card */
+        .ai-icon.drone-icon {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(139, 92, 246, 0.2));
+            color: #ec4899;
+            animation: droneFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes droneFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-10px) rotate(5deg);
+            }
+            50% {
+                transform: translateY(0) rotate(0deg);
+            }
+            75% {
+                transform: translateY(-5px) rotate(-5deg);
+            }
+        }
+
+        .ai-badge {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .ai-project-card:hover .ai-badge {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Advanced AI Badge */
+        .ai-badge.advanced {
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-badge.advanced::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                transparent 20%,
+                rgba(255, 255, 255, 0.3) 50%,
+                transparent 80%
+            );
+            transform: rotate(30deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                left: -50%;
+            }
+            100% {
+                left: 150%;
+            }
+        }
+
+        .ai-project-title {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .ai-project-card:hover .ai-project-title {
+            color: #60a5fa;
+            transform: translateX(5px);
+        }
+
+        .ai-project-description {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .ai-project-card:hover .ai-project-description {
+            color: #e2e8f0;
+        }
+
+        .ai-project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .ai-tech-tag {
+            background: rgba(96, 165, 250, 0.15);
+            color: #93c5fd;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-tech-tag::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(96, 165, 250, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .ai-tech-tag:hover {
+            background: rgba(96, 165, 250, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(96, 165, 250, 0.2);
+        }
+
+        .ai-tech-tag:hover::after {
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Neural Network Elements */
+        .neural-connections {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .neural-node {
+            width: 8px;
+            height: 8px;
+            background: #60a5fa;
+            border-radius: 50%;
+            animation: nodePulse 2s infinite ease-in-out;
+            box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+        }
+
+        .neural-node:nth-child(2) { animation-delay: 0.3s; }
+        .neural-node:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes nodePulse {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            50% { 
+                transform: scale(1.5);
+                opacity: 1;
+            }
+        }
+
+        /* Neural Network Visual */
+        .neural-network-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-top: 40px;
+            opacity: 0.3;
+            animation: fadeIn 2s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 0.3; }
+        }
+
+        .neural-layer {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .neuron {
+            width: 12px;
+            height: 12px;
+            background: #60a5fa;
+            border-radius: 50%;
+            position: relative;
+            animation: neuronGlow 4s infinite ease-in-out;
+        }
+
+        .neuron::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(96, 165, 250, 0.2);
+            animation: neuronRing 4s infinite ease-in-out;
+        }
+
+        @keyframes neuronGlow {
+            0%, 100% { 
+                box-shadow: 0 0 5px rgba(96, 165, 250, 0.5);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 20px rgba(96, 165, 250, 0.8);
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes neuronRing {
+            0% {
+                width: 12px;
+                height: 12px;
+                opacity: 1;
+            }
+            100% {
+                width: 40px;
+                height: 40px;
+                opacity: 0;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .ai-projects-container {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .ai-title {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .neural-line {
+                width: 100%;
+                height: 1px;
+            }
+            
+            .neural-network-visual {
+                display: none;
+            }
+        }
+
+        /* Animation for Project Demo Button */
+        .project-demo-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-demo-link::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .project-demo-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            color: white;
+        }
+
+        .project-demo-link:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .project-demo-link i {
+            margin-right: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .project-demo-link:hover i {
+            transform: translateX(3px);
+        }
+    </style>
+
+    <script>
+        // Animation observer for cards
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create particles
+            createParticles();
+            
+            // Animate cards on scroll
+            const cards = document.querySelectorAll('.ai-project-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('animate');
+                        }, index * 200);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+
+            // Function to create particles
+            function createParticles() {
+                const particlesContainer = document.querySelector('.ai-particles');
+                const particleCount = 20;
+                
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    // Random properties
+                    const size = Math.random() * 4 + 1;
+                    const posX = Math.random() * 100;
+                    const delay = Math.random() * 15;
+                    const duration = Math.random() * 10 + 10;
+                    
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    particle.style.left = `${posX}%`;
+                    particle.style.animationDelay = `${delay}s`;
+                    particle.style.animationDuration = `${duration}s`;
+                    
+                    particlesContainer.appendChild(particle);
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#hero" class="logo">MAB</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#ai-projects" class="nav-link">AI Projects</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Hi, I'm <span class="highlight">Mohamed Amine</span> — Software Developer</h1>
+                <p class="hero-subtitle">Web & Mobile Development | AI & Intelligent Systems</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#ai-projects" class="btn btn-outline">AI Projects</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="code-animation">
+                    <div class="code-line"></div>
+                    <div class="code-line"></div>
+                    <div class="code-line"></div>
+                    <div class="code-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a passionate software developer specializing in web and mobile development with a strong background in computer systems.</p>
+                    <p>Currently pursuing a Master's degree in Artificial Intelligence & Digitalization at University Ibn Khaldoun in Tiaret, Algeria.</p>
+                    <p>My passion lies in leveraging modern technologies, AI, and intelligent systems to build real-world solutions that make a difference.</p>
+                    <p>I enjoy tackling complex problems and turning innovative ideas into functional, user-friendly applications.</p>
+                </div>
+                <div class="about-image">
+                    <div class="profile-card">
+                        <div class="profile-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="profile-details">
+                            <h3>Mohamed Amine Boucherit</h3>
+                            <p>Web & Mobile Developer</p>
+                            <p>AI & Digitalization Student</p>
+                            <p class="location"><i class="fas fa-map-marker-alt"></i> Tiaret, Algeria</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" data-level="90"></div>
+                            </div>
+                            <span class="skill-desc">ML, AI, Django</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">JavaScript</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" data-level="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">PHP</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" data-level="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Java</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" data-level="75"></div>
+                            </div>
+                            <span class="skill-desc">Android</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">C</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" data-level="70"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-globe"></i> Web Technologies</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">HTML5</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" data-level="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">CSS3</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" data-level="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">SQL</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" data-level="85"></div>
+                            </div>
+                            <span class="skill-desc">Databases</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Vue.js</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" data-level="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Fast Api</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" data-level="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-container">
+                <!-- Updated Maze Project Card with Live Demo -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-route"></i>
+                        <h3>Maze Project</h3>
+                    </div>
+                    <p class="project-description">A front-end web project for an interactive maze experience. This project was designed and developed by me, showcasing my front-end skills. Purpose: to present the maze and inform visitors about events and activities inside it.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                    <!-- Live Demo Button -->
+                    <a href="https://your-maze-project-demo.com" target="_blank" class="project-demo-link">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                </div>
+                
+                <!-- Existing Project Cards -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>Event Halls Booking System</h3>
+                    </div>
+                    <p class="project-description">A comprehensive web application for booking event halls with real-time availability, payment integration, and admin management.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">HTML/CSS</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>E-commerce Platform</h3>
+                    </div>
+                    <p class="project-description">Full-featured online shopping platform with product catalog, shopping cart, user authentication, and secure payment processing.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">Php</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Student Management App</h3>
+                    </div>
+                    <p class="project-description">Mobile application for student registration, course management, and academic tracking with offline functionality.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Android</span>
+                        <span class="tech-tag">SQLite</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Portfolio Websites</h3>
+                    </div>
+                    <p class="project-description">I design and develop modern, responsive, and professional portfolio websites for developers, designers, students, and freelancers.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Responsive Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Projects Section -->
+    <section class="ai-projects" id="ai-projects">
+        <!-- AI Particles Background -->
+        <div class="ai-particles"></div>
+        
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title ai-title">
+                    <i class="fas fa-brain"></i>
+                    AI & Machine Learning Projects
+                    <div class="neural-line"></div>
+                </h2>
+                <p class="section-subtitle">Advanced artificial intelligence and deep learning projects with cutting-edge technologies</p>
+            </div>
+            
+            <div class="ai-projects-container">
+                <!-- Autonomous Drone Simulation Card (Highlighted) -->
+                <div class="ai-project-card">
+                    <div class="ai-card-header">
+                        <div class="ai-icon drone-icon">
+                            <i class="fas fa-drone"></i>
+                        </div>
+                        <div class="ai-badge advanced">Advanced AI</div>
+                    </div>
+                    <h3 class="ai-project-title">Autonomous Drone Simulation (AI)</h3>
+                    <p class="ai-project-description">AI-powered autonomous drone simulation in a 3D environment with obstacle avoidance and intelligent decision-making using neural networks and reinforcement learning.</p>
+                    <div class="ai-project-tech">
+                        <span class="ai-tech-tag">Python</span>
+                        <span class="ai-tech-tag">TensorFlow</span>
+                        <span class="ai-tech-tag">Webots</span>
+                        
+                        <span class="ai-tech-tag">Neural Networks</span>
+                    
+                    </div>
+                    <div class="neural-connections">
+                        <div class="neural-node"></div>
+                        <div class="neural-node"></div>
+                        <div class="neural-node"></div>
+                    </div>
+                </div>
+                
+                <!-- AI Image Classification Card -->
+                <div class="ai-project-card">
+                    <div class="ai-card-header">
+                        <div class="ai-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="ai-badge">AI / Machine Learning</div>
+                    </div>
+                    <h3 class="ai-project-title">AI Image Classification</h3>
+                    <p class="ai-project-description">Image classification system using deep learning to classify natural elements and objects with high accuracy.</p>
+                    <div class="ai-project-tech">
+                        <span class="ai-tech-tag">Python</span>
+                        <span class="ai-tech-tag">CNN</span>
+                        <span class="ai-tech-tag">TensorFlow</span>
+                        <span class="ai-tech-tag">OpenCV</span>
+                    </div>
+                    <div class="neural-connections">
+                        <div class="neural-node"></div>
+                        <div class="neural-node"></div>
+                        <div class="neural-node"></div>
+                    </div>
+                </div>
+                
+                <!-- Product Price Regression Card -->
+                <div class="ai-project-card">
+                    <div class="ai-card-header">
+                        <div class="ai-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="ai-badge">AI / Machine Learning</div>
+                    </div>
+                    <h3 class="ai-project-title">Product Price Regression</h3>
+                    <p class="ai-project-description">Machine learning regression model to predict product prices based on historical market data and features.</p>
+                    <div class="ai-project-tech">
+                        <span class="ai-tech-tag">Python</span>
+                        <span class="ai-tech-tag">Scikit-learn</span>
+                        <span class="ai-tech-tag">Regression Models</span>
+                        <span class="ai-tech-tag">Data Analysis</span>
+                    </div>
+                    <div class="neural-connections">
+                        <div class="neural-node"></div>
+                        <div class="neural-node"></div>
+                        <div class="neural-node"></div>
+                    </div>
+                </div>
+                
+                <!-- Flower Classification Card -->
+                <div class="ai-project-card">
+                    <div class="ai-card-header">
+                        <div class="ai-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="ai-badge">AI / Machine Learning</div>
+                    </div>
+                    <h3 class="ai-project-title">Flower Classification (AI)</h3>
+                    <p class="ai-project-description">AI-based flower recognition system using convolutional neural networks for botanical identification.</p>
+                    <div class="ai-project-tech">
+                        <span class="ai-tech-tag">Python</span>
+                        <span class="ai-tech-tag">CNN</span>
+                        <span class="ai-tech-tag">TensorFlow</span>
+                       
+                    </div>
+                    <div class="neural-connections">
+                        <div class="neural-node"></div>
+                        <div class="neural-node"></div>
+                        <div class="neural-node"></div>
+                    </div>
+                </div>
+                
+                <!-- Skin Disease Classification Card -->
+                <div class="ai-project-card">
+                    <div class="ai-card-header">
+                        <div class="ai-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="ai-badge">Medical AI</div>
+                    </div>
+                    <h3 class="ai-project-title">Skin Disease Classification</h3>
+                    <p class="ai-project-description">Medical AI project for skin disease classification including Dermatofibroma and Melanoma detection.</p>
+                    <div class="ai-project-tech">
+                        <span class="ai-tech-tag">Python</span>
+                        <span class="ai-tech-tag">Deep Learning</span>
+                
+                   
+                    </div>
+                    <div class="neural-connections">
+                        <div class="neural-node"></div>
+                        <div class="neural-node"></div>
+                        <div class="neural-node"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Neural Network Visual Element -->
+            <div class="neural-network-visual">
+                <div class="neural-layer">
+                    <div class="neuron"></div>
+                    <div class="neuron"></div>
+                    <div class="neuron"></div>
+                </div>
+                <div class="neural-layer">
+                    <div class="neuron"></div>
+                    <div class="neuron"></div>
+                    <div class="neuron"></div>
+                </div>
+                <div class="neural-layer">
+                    <div class="neuron"></div>
+                    <div class="neuron"></div>
+                    <div class="neuron"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Languages -->
+    <section class="education-languages" id="education">
+        <div class="container">
+            <div class="edu-lang-container">
+                <div class="education-section">
+                    <h2 class="section-title">Education</h2>
+                    <div class="education-timeline">
+                        <div class="education-item">
+                            <div class="edu-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="edu-details">
+                                <h3>Master 1 – Artificial Intelligence & Digitalization</h3>
+                                <p class="edu-period">2024 - Present</p>
+                                <p class="edu-institution">University Ibn Khaldoun, Tiaret</p>
+                            </div>
+                        </div>
+                        <div class="education-item">
+                            <div class="edu-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <div class="edu-details">
+                                <h3>Licence in Computer Systems</h3>
+                                <p class="edu-period">2022 - 2025</p>
+                                <p class="edu-institution">University Ibn Khaldoun, Tiaret</p>
+                            </div>
+                        </div>
+                        <div class="education-item">
+                            <div class="edu-icon">
+                                <i class="fas fa-school"></i>
+                            </div>
+                            <div class="edu-details">
+                                <h3>Baccalaureate in Technical Mathematics</h3>
+                                <p class="edu-period">2021 - 2022</p>
+                                <p class="edu-institution">Specialization: Civil Engineering</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="languages-section">
+                    <h2 class="section-title">Languages</h2>
+                    <div class="languages-list">
+                        <div class="language-item">
+                            <div class="language-name">
+                                <span class="flag-icon">🇩🇿</span>
+                                <h3>Arabic</h3>
+                            </div>
+                            <span class="language-level">Native</span>
+                        </div>
+                        <div class="language-item">
+                            <div class="language-name">
+                                <span class="flag-icon">🇫🇷</span>
+                                <h3>French</h3>
+                            </div>
+                            <span class="language-level">Intermediate</span>
+                        </div>
+                        <div class="language-item">
+                            <div class="language-name">
+                                <span class="flag-icon">🇺🇸</span>
+                                <h3>English</h3>
+                            </div>
+                            <span class="language-level">Intermediate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <a href="mailto:mohamedaminee1414@gmail.com">mohamedaminee1414@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <a href="tel:+213542857253">+213 542 857 253</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>Tiaret, Algeria</p>
+                        </div>
+                    </div>
+              
+                </div>
+                <div class="contact-form">
+                   <h3> I'm always open to new opportunities, meaningful collaborations, and freelance projects. I enjoy turning ideas into real, effective solutions, and I'm always interested in working with people who value quality and innovation.</h3>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="copyright">© 2023 Mohamed Amine Boucherit. All rights reserved.</p>
+                <p class="footer-note">Designed and developed with <i class="fas fa-heart"></i> and <i class="fas fa-code"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
